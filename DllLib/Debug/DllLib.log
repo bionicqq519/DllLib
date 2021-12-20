@@ -1,0 +1,5 @@
+﻿  pch.cpp
+  dllLib.cpp
+C:\Users\admin\Desktop\DllLib\DllLib\dllLib.cpp(27,1): fatal error C1010: 尋找先行編譯標頭檔指示詞時碰到未預期的檔案結尾。您的原始檔中是否忘了加上 '#include "pch.h"'?
+  dllmain.cpp
+  正在產生程式碼...

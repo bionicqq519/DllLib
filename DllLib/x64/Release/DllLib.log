@@ -1,0 +1,16 @@
+﻿  pch.cpp
+  dllLib.cpp
+D:\QT\DllLib\DllLib\dllLib.cpp(7,5): warning C4273: 'dll_Init': 不一致的 DLL 連結
+D:\QT\DllLib\DllLib\dllLib.h(12,14): message : 請參閱 'dll_Init' 之前的定義
+D:\QT\DllLib\DllLib\dllLib.cpp(14,5): warning C4273: 'dll_Run': 不一致的 DLL 連結
+D:\QT\DllLib\DllLib\dllLib.h(14,14): message : 請參閱 'dll_Run' 之前的定義
+D:\QT\DllLib\DllLib\dllLib.cpp(22,5): warning C4273: 'dll_DeInit': 不一致的 DLL 連結
+D:\QT\DllLib\DllLib\dllLib.h(16,14): message : 請參閱 'dll_DeInit' 之前的定義
+  dllmain.cpp
+     正在建立程式庫 D:\QT\DllLib\x64\Release\DllLib.lib 和物件 D:\QT\DllLib\x64\Release\DllLib.exp
+  正在產生程式碼
+  6 of 7 functions (85.7%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  已完成程式碼產生
+  DllLib.vcxproj -> D:\QT\DllLib\x64\Release\DllLib.dll
