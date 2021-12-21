@@ -9,11 +9,11 @@
 
 extern "C"
 {
-	dll_API int dll_Init();
+	dll_API int dll_Init(unsigned char** dllhandle);
 
-	dll_API int dll_Run(unsigned char *ucPara1, int dPara2);
+	dll_API int dll_Run(unsigned char* dllhandle, unsigned char* ucPara1, int dPara2);
 
-	dll_API int dll_DeInit();
+	dll_API int dll_DeInit(unsigned char** dllhandle);
 }
 
 

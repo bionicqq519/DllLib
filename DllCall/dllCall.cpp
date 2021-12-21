@@ -1,15 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <Windows.h>
+#include <string.h>
 #include "../DllLib/dllLib.h"
 
-typedef int(*dll_Init_def)();
+typedef int(*dll_Init_def)(unsigned char**);
 dll_Init_def dll_Init_p = NULL;
 
-typedef int(*dll_Run_def)(unsigned char*, int);
+typedef int(*dll_Run_def)(unsigned char*, unsigned char*, int);
 dll_Run_def dll_Run_p = NULL;
 
-typedef int(*dll_DeInit_def)();
+typedef int(*dll_DeInit_def)(unsigned char**);
 dll_DeInit_def dll_DeInit_p = NULL;
 
 HINSTANCE hdll = NULL;
@@ -58,14 +59,18 @@ int loadLibrary()
 int main(void)
 {
 	loadLibrary();
-	dll_Init_p();
-	unsigned char* buf = (unsigned char*)malloc(sizeof(unsigned char) * 10);
-	strcpy((char*)buf, "dllCall");
-	dll_Run_p(buf, 10);
-	dll_DeInit_p();
+	unsigned char* ucHandle = NULL;
+	int test_length = 64;
+	unsigned char* testStr = (unsigned char *)malloc(test_length);
+	strcpy((char*)testStr, "handle test");
+	dll_Init_p(&ucHandle);
+	dll_Run_p(ucHandle, testStr, test_length);
+	printf("ucHandle = %s\n", ucHandle);
+	dll_DeInit_p(&ucHandle);
+	printf("ucHandle = %s\n", ucHandle);
 	closeLibrary();
+	free(testStr);
 
-	free(buf);
 	system("pause");
 	return 0;
 }

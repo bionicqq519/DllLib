@@ -1,27 +1,29 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "dllLib.h"
 
 extern "C"
 {
-    int dll_Init()
+    int dll_Init(unsigned char **dllhandle)
     {
         int ret = 0;
-        printf("dll_Init\n");
+        *dllhandle = (unsigned char *)malloc(sizeof(unsigned char)*64);
         return ret;
     }
 
-    int dll_Run(unsigned char* ucPara1, int dPara2)
+    int dll_Run(unsigned char* dllhandle, unsigned char* ucPara1, int dPara2)
     {
         int ret = 0;
-        printf("dll_Run Para1 = %s\n", ucPara1);
-        printf("dll_Run Para2 = %d\n", dPara2);
+        memcpy(dllhandle, ucPara1, dPara2);
         return ret;
     }
 
-    int dll_DeInit()
+    int dll_DeInit(unsigned char** dllhandle)
     {
         int ret = 0;
-        printf("dll_Run\n");
+        free(*dllhandle);
+        *dllhandle = NULL;
         return ret;
     }
 }
